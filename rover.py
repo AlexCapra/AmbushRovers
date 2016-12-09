@@ -9,9 +9,6 @@ class direction( object ):
 
   # Turns direction one position to the left or to the right. Ex: N to E for Right, and E to S for Left
   def turn(self, direction):
-    print('direction: ',direction)
-    print('self.direction: ', self.direction)
-    print('self.valueIndx: ', self.valueIdx)
     if(direction == 'R'):
       if(self.valueIdx < len(self.valueList)):
         self.valueIdx += 1
@@ -42,12 +39,9 @@ class rover( object ):
     if(moveControl == 'R' or moveControl == 'L'):
       self.facingPos.turn(moveControl)
     elif(moveControl == 'M'):
-      print("WALK!")
       if(self.facingPos.direction == 'N'):
-        print("MOVING NORTH! current pos: ", self.X, self.Y)
         if(self.Y + 1 <= self.limitX):
           self.Y += 1
-          print("MOVED NORTH! current pos: ", self.X, self.Y)
       elif(self.facingPos.direction == 'E'):
         if(self.X + 1 <= self.limitY):
           self.X += 1
