@@ -9,8 +9,11 @@ class direction( object ):
 
   # Turns direction one position to the left or to the right. Ex: N to E for Right, and E to S for Left
   def turn(self, direction):
+    #print('Current direction: ', self.direction)
+    #print('Current idx: ', self.valueIdx)
+    #print('Turning to: ', direction)
     if(direction == 'R'):
-      if(self.valueIdx < len(self.valueList)):
+      if(self.valueIdx < len(self.valueList)-1):
         self.valueIdx += 1
       else:
         self.valueIdx = 0
@@ -19,7 +22,9 @@ class direction( object ):
         self.valueIdx -= 1
       else:
         self.valueIdx = len(self.valueList)-1
+    #print('New idx: ',self.valueIdx)
     self.direction = self.valueList[self.valueIdx]
+    #print('New direction: ', self.direction)
 
   def __str__(self):
     return self.direction
